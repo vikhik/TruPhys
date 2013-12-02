@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3135f85e-cec0-4218-8132-2d4f85feb510</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>truphys.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="truphys.py" />
+    <Compile Include="scene\game_object\camera.py" />
+    <Compile Include="scene\game_object\components\component.py" />
+    <Compile Include="scene\game_object\components\transform.py" />
+    <Compile Include="game.py" />
+    <Compile Include="scene\game_object\game_object.py" />
+    <Compile Include="scene\scene.py" />
+    <Compile Include="scene\script\script.py" />
+    <Compile Include="main.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="scene\script\" />
+    <Folder Include="scene\" />
+    <Folder Include="scene\game_object\" />
+    <Folder Include="scene\game_object\components\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
