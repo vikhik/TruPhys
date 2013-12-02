@@ -1,4 +1,4 @@
-""" This is the test harness for the TruPhys engine.
+"""This is the test harness for the TruPhys engine.
 
 When run, it initializes and then runs a series of tests. 
 Any added functionality should have tests added here.

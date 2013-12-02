@@ -10,7 +10,6 @@ class Game(object):
 
     """
 
-
     def __init__(self, scene_list):
         """ Initialise the Game
 
