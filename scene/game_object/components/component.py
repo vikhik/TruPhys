@@ -18,14 +18,20 @@ class Component(object):
     def load(self):
         if not self.loads:
             raise ComponentLoadException
+        else:
+            raise NotImplementedError
 
     def unload(self):
         if not self.loads:
             raise ComponentUnloadException
+        else:
+            raise NotImplementedError
 
     def input(self, state):
         if not self.handles_input:
             raise ComponentInputException
+        else:
+            raise NotImplementedError
 
     def update(self):
         pass
@@ -33,10 +39,21 @@ class Component(object):
     def render(self):
         if not self.renders:
             raise ComponentRenderException
+        else:
+            raise NotImplementedError
 
     def play_audio(self):
         if not self.has_audio:
             raise ComponentAudioException
+        else:
+            raise NotImplementedError
+
+    def __repr__(self):
+        """ Returns an object representation of the Component 
+        Should be overridden with relevant details
+        
+        """
+        return "%s - No Details" % (self.__class__.__name__)
         
     class ComponentRenderException(Exception):
         pass

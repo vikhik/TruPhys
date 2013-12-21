@@ -5,12 +5,13 @@ class GameObject(object):
     
     It handles loading, input, update and output of all Components.
 
-    A GameObject must have a Transform
+    A GameObject must have a Transform (this is automatically added during creation as the 0th component).
 
     """
 
-    def __init__(self, components):
+    def __init__(self, components, name = "Game Object"):
         self.components = [Transform, ] + components
+        self.name = name
         
         self.handles_input = False
         self.renders = False
@@ -73,6 +74,20 @@ class GameObject(object):
         for component in self.components:
             if component.has_audio:
                 component.play_audio()
+
+    def __repr__(self):
+        """ Returns an object representation of the Game Object and all Components 
+        Does not need to be overridden.
+        
+        """
+        if not self.renders:
+            raise GameObjectRenderException
+
+        str = "%s:\n" % (self.name)
+
+        for component in self.components:
+            if component.renders:
+                str += "\t" + repr(component) + "\n"
 
     class GameObjectLoadException(Exception):
         pass

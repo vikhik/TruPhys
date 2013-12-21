@@ -17,26 +17,45 @@ class Script(object):
     def load(self):
         if not self.loads:
             raise ScriptLoadException
+        else:
+            raise NotImplementedError
 
     def unload(self):
         if not self.loads:
             raise ScriptUnloadException
+        else:
+            raise NotImplementedError
 
     def input(self):
         if not self.handles_input:
             raise ScriptInputException
+        else:
+            raise NotImplementedError
 
     def render(self):
         if not self.renders:
             raise ScriptRenderException
+        else:
+            raise NotImplementedError
 
     def play_sound(self):
         if not self.has_audio:
             raise ScriptAudioException
+        else:
+            raise NotImplementedError
 
     def update(self):
         if not self.updates:
             raise ScriptUpdateException
+        else:
+            raise NotImplementedError
+        
+    def __repr__(self):
+        """ Returns an object representation of the Script 
+        Should be overridden with relevant details
+        
+        """
+        return "%s - No Details" % (self.__class__.__name__)
 
     class ScriptInputException(Exception):
         pass

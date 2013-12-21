@@ -7,6 +7,8 @@ class Scene(object):
     
     """
 
+    text_output = True
+
     def __init__(self, game_objects, scripts):
         self.loaded = False
         self.game_objects = game_objects
@@ -47,16 +49,22 @@ class Scene(object):
                 script.update()
 
     def output(self, audio=True):
-        for game_objects in self.game_objects:
-            if game_objects.renders:
-                game_objects.render()
+        for game_object in self.game_objects:
+            if game_object.renders:
+                if not text_output:
+                    game_object.render()
+                else:
+                    print(game_object)
 
-            if audio and game_objects.has_audio:
-                game_objects.play_audio()
+            if audio and game_object.has_audio and not text_output:
+                game_object.play_audio()
 
         for script in self.scripts:
             if script.renders:
-                script.render()
+                if not text_output:
+                    script.render()
+                else:
+                    print(script)
 
-            if audio and script.has_audio:
+            if audio and script.has_audio and not text_output:
                 script.play_audio()
